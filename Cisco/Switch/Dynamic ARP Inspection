@@ -1,11 +1,11 @@
 # Dynamic ARP Inspection without DHCP snooping binding database
-
-Step 1: Configure ARP ACL which maps IP-address to MAC-address
+Configuration:
+Step 1: Configure ARP-ACL, which maps IP-address to MAC-address
 
   arp access-list VLAN100-DAI
     permit ip host 100.1.1.2 mac host 0c36.124d.8064
  
-Step 2: Link ARP ACL to ARP Inspection VLAN
+Step 2: Link ARP-ACL to VLAN
 
   ip arp inspection filter VLAN100-DAI vlan 100 static
 
@@ -13,16 +13,22 @@ Step 3: Enable ARP Inspecton on VLAN
 
   ip arp inspection vlan 100
 
-Step 4: Enable logging
+Step 4: Enable logging, to log hits on the ACL
 
   ip arp inspection vlan 100 logging acl-match matchlog
 
-Step 5: Select method of ARP inspection validation     # Can be ip dst-mac / ip src-mac
+Step 5: Select method of ARP inspection validation     # Can be: ip dst-mac / ip src-mac
 
   ip arp inspection validate ip src-mac
+  
+Step 6: Configure trusted interfaces, for example trunk interfaces. By default, all interfaces are untrusted.
+  
+ interface g0/1
+  ip arp inspection trust
 
-# Remmember to clera arp-ceache on the switch
+# Remmember to clear arp-ceache on the switch
 
-Verification
+Verification:
 show ip arp inspection
 show ip arp inspection vlan 100
+show ip arp inspection interfaces
