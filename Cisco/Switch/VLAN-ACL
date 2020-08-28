@@ -1,6 +1,5 @@
-# Configuration of VLAN ACL
-# VACL can be applied to IP-address or MAC-address
-
+# VLAN-ACL. VACL can be applied to IP-address or MAC-address.
+Configurarion:
 Step 1.a: Configure standatd/extended IP ACL
 
 ip access-list extended Vlan100-TCP
@@ -28,3 +27,10 @@ Step 3: Apply Vlan access map to the VLAN
 
 vlan filter VLAN100 vlan-list 100
 vlan filter VLAN200 vlan-list 200
+
+Verification commands:
+show access-lists [number/name]
+show ip access-lists [number/name]
+show vlan access-map
+show vlan filter vlan [number]
+show vlan filter access-map [name]
