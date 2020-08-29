@@ -5,4 +5,31 @@ Configuration:
   vtp version 2
   vtp mode server
   vtp password CCNP
-  
+
+
+VTP version review:
+- Version 1
+Default version on IOS switches
+Supports the normal VLAN range (1-1005)
+Supports VLAN pruning for VLANs 2-1001
+Operates in Server, Client or Transparent modes
+Supports plain text or MD5 password
+Drops unknown TLVs
+- Version 2
+Supports normal VLAN range (1-1005)
+Extended VLANs can be used in Transparent Mode only
+Added support for Token Ring Concentrator Relay Function and Bridge Relay Function
+Added support for unknown TLV records
+Optimized VLAN database consistency checking
+- Version 3
+Supported in Cisco CatOS version 8.1 and above.
+Does not directly handle VLANs but instead distributes a list of databases over an administrative domain.
+Support for extended VLANs (1025-4094).
+Fixes configuration revision overwrite problem that exists in v1/v2 by introducing the primary and secondary server
+Only primary server is able to create / modify / delete VLANs.
+Added VTP mode off. It means that VTPv3 can be disabled globally or per interface.
+Create and advertise private VLANs.
+Improved server authentication.
+Enhancements to a mechanism for protection from the “wrong” database accidentalyl being inserted into a VTP domain
+Interaction with VTP version 1 and 2
+Configurable of a per-port basis
