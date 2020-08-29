@@ -1,2 +1,36 @@
 # Basic STP (PVST+)
 Configuration:
+- Root Switch
+  spanning-tree mode pvst
+  spanning-tree vlan 1 root primary     # or spanning-tree vlan 1 priority 0
+  spanning-tree vlan 100 root primary
+  spanning-tree vlan 200 root primary
+  spanning-tree backbonefast
+
+- Secondary Root Switch
+  spanning-tree mode pvst
+  spanning-tree vlan 1 root secondary     # or spanning-tree vlan 1 priority 4096
+  spanning-tree vlan 100 root secondary
+  spanning-tree vlan 200 root secondary
+  spanning-tree backbonefast
+
+-Other Switches
+  spanning-tree mode pvst
+  
+  - Configure VLAN Load Balancing, decreasing STP port cost for specific VLAN
+  int g0/1
+  spanning-tree vlan 200 cost 100
+  
+  - Decrease converege for Backup (Alternate) ports from 50 to 5 seconds.
+  - Command spanning-tree backbonefast has to be configured on all switches in STP Domain.
+  - Command spanning-tree uplinkfast has to be configured only on switches that have Backup (Alternate) ports.
+  spanning-tree backbonefast
+  spanning-tree uplinkfast
+  
+Verification Commands
+  show spanning-tree
+  show spanning-tree vlan 100
+  show spanning-tree summary
+  show spanning-tree backbonefast
+  show spanning-tree uplinkfast
+  
