@@ -1,0 +1,8 @@
+# VLAN Trunking Protocol
+Configuration:
+  
+  vtp domain SWITCH
+  vtp version 2
+  vtp mode server
+  vtp password CCNP
+  
