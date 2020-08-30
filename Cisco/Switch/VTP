@@ -1,4 +1,5 @@
 # VLAN Trunking Protocol
+
 Configuration:
 - Version 1,2
   vtp domain SWITCH
@@ -13,6 +14,7 @@ Configuration:
   vtp password CCNP hidden
   end  
   vtp primary     # This command executes in privilege mode 
+
 
 Verification Commands:
   show vtp status
