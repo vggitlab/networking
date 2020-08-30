@@ -2,9 +2,7 @@
 Configuration:
 - Root Switch
   spanning-tree mode pvst
-  spanning-tree vlan 1 root primary     # or spanning-tree vlan 1 priority 0
-  spanning-tree vlan 100 root primary
-  spanning-tree vlan 200 root primary
+  spanning-tree vlan 1,100,200 root primary     # or spanning-tree vlan 1,100,200 priority 0
   spanning-tree backbonefast
 
 - Secondary Root Switch
@@ -24,7 +22,7 @@ Configuration:
   - Command spanning-tree uplinkfast has to be configured only on switches that have Backup (Alternate) ports.
   spanning-tree backbonefast
   spanning-tree uplinkfast
-  
+
 Verification Commands
   show spanning-tree
   show spanning-tree vlan 100
