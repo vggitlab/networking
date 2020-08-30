@@ -9,9 +9,7 @@ Configuration:
 
 - Secondary Root Switch
   spanning-tree mode pvst
-  spanning-tree vlan 1 root secondary     # or spanning-tree vlan 1 priority 4096
-  spanning-tree vlan 100 root secondary
-  spanning-tree vlan 200 root secondary
+  spanning-tree vlan 1,100,200 root secondary     # or spanning-tree vlan 1,100,200 priority 4096
   spanning-tree backbonefast
 
 -Other Switches
