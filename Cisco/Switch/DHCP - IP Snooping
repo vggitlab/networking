@@ -1,4 +1,5 @@
 # DHCP Snooping and IP Snooping
+
 Configuration:
 Step 1: Configure DHCP Snooping trusted interfaces. Trusted interfaces usually connected to DHCP Server and Trunk interfaces.
  
@@ -18,13 +19,14 @@ Step 4: Enable IP Snooping on interfaces, which connected to client devices.
   interface g0/1
     ip verify source
   
+
 Verification commands:
 - DHCP Snooping
-show ip dhcp snooping
-show ip dhcp snooping binding
-show ip dhcp snooping binding vlan 100
-show ip dhcp snooping statistics
+  show ip dhcp snooping
+  show ip dhcp snooping binding
+  show ip dhcp snooping binding vlan 100
+  show ip dhcp snooping statistics
 - IP Snooping
-show ip source binding
-show ip source binding dhcp-snooping
-show ip source binding vlan 100
+  show ip source binding
+  show ip source binding dhcp-snooping
+  show ip source binding vlan 100
