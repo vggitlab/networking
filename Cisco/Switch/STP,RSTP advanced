@@ -8,6 +8,7 @@
 
 # Loop Guard  
 - Detects Root and Backup (Alternate) ports, and ensures they continue to receive BPDUs.
+- Can be enabled globaly or at intrface.
 - When enabled, should one of these ports stop receiving BPDUs, it is moved into a loop-inconsistent state.
   
   spanning-tree loopguard default
