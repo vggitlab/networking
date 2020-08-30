@@ -1,0 +1,21 @@
+# Advanced features of STP, RSTP
+
+# Root Guard
+- Protect root switch, by enabling root guard on Designated ports on every switch in STP domain.
+  
+  interface range g0/0-2
+  spanning-tree guard root
+
+# Loop Guard  
+- Detects Root and Backup (Alternate) ports, and ensures they continue to receive BPDUs.
+- When enabled, should one of these ports stop receiving BPDUs, it is moved into a loop-inconsistent state.
+  
+  spanning-tree loopguard default
+  
+  interface range g0/0-2
+  spanning-tree guard loop
+  
+  
+Verification Commands:
+  show spanning-tree inconsistentports
+  show spanning-tree summary
