@@ -1,36 +1,38 @@
 # VLAN-ACL. VACL can be applied to IP-address or MAC-address.
+
 Configurarion:
 Step 1.a: Configure standatd/extended IP ACL
 
-ip access-list extended Vlan100-TCP
- permit tcp any any
-ip access-list extended Vlan100-UDP
- permit udp any any
+  ip access-list extended Vlan100-TCP
+   permit tcp any any
+  ip access-list extended Vlan100-UDP
+   permit udp any any
 
 Step 1.b: Configure extended MAC ACL
 
-mac access-list extended Sw-ALS2
- permit host 0c36.12ee.80c8 any     # Remmember to clear arp-cache on the switch to take affect of MAC-address filtering
+  mac access-list extended Sw-ALS2
+   permit host 0c36.12ee.80c8 any     # Remmember to clear arp-cache on the switch to take affect of MAC-address filtering
  
 Step 2: Configure Vlan access map
  
-vlan access-map VLAN100 10
- match ip address Vlan100-TCP
- action drop
-vlan access-map VLAN100 20
- match ip address Vlan100-UDP
- action drop
-vlan access-map VLAN100 30
- action forward
+  vlan access-map VLAN100 10
+   match ip address Vlan100-TCP
+   action drop
+  vlan access-map VLAN100 20
+   match ip address Vlan100-UDP
+   action drop
+  vlan access-map VLAN100 30
+   action forward
 
 Step 3: Apply Vlan access map to the VLAN
 
-vlan filter VLAN100 vlan-list 100
-vlan filter VLAN200 vlan-list 200
+ vlan filter VLAN100 vlan-list 100
+ vlan filter VLAN200 vlan-list 200
 
-Verification commands:
-show access-lists [number/name]
-show ip access-lists [number/name]
-show vlan access-map
-show vlan filter vlan [number]
-show vlan filter access-map [name]
+
+Verification Commands:
+  show access-lists [number/name]
+  show ip access-lists [number/name]
+  show vlan access-map
+  show vlan filter vlan [number]
+  show vlan filter access-map [name]
