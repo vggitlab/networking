@@ -1,0 +1,37 @@
+# Spanning Tree MST
+
+Configuration:
+- SW1
+  spanning-tree mode mst
+  spanning-tree mst configuration
+  name CCNP
+  revision 0
+  instance 1 vlan 100,200
+  instance 2 vlan 300,400
+  instance 3 vlan 500,600
+  instance 4 vlan 700,800
+  exit
+  spanning-tree mst 1 priority 0
+  spanning-tree pathcost method long
+  
+- SW2
+  spanning-tree mode mst
+  spanning-tree mst configuration
+  name CCNP
+  revision 0
+  instance 1 vlan 100,200
+  instance 2 vlan 300,400
+  instance 3 vlan 500,600
+  instance 4 vlan 700,800
+  exit
+  spanning-tree mst 2 priority 0
+  spanning-tree pathcost method long
+  
+  
+Verification Commadns:
+  show spanning-tree
+  show spanning-tree mst 1
+  show spanning-tree mst configuration
+  show spanning-tree mst interface g0/0
+  show spanning-tree mst detail
+  
