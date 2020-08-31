@@ -1,0 +1,44 @@
+# EtherChannel Switchport
+
+Configuration:
+- mode ON
+interface range g0/0-1
+ description Etherchannel Group 1
+ channel-group 1 mode on                    # switch on other side should be configured with: channel-group 1 mode on
+ no shutdown
+interface Port-channel1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+
+- mode LACP
+interface range g0/2-3
+ description Etherchannel Group 2
+ channel-group 2 mode active                # switch on other side should be configured with: channel-group 1 mode passive / active
+ no shutdown
+interface Port-channel2
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+
+- mode PAgP
+interface range g1/0-1
+ description Etherchannel Group 3
+ channel-group 3 mode desirable             # switch on other side should be configured with: channel-group 1 mode desirable / auto
+ no shutdown
+interface Port-channel3
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+
+# These commands protect STP from Etherchannel misconfiguration and enable autorecovery from error every 10 minutes.
+ spanning-tree etherchannel guard misconfig
+ errdisable recovery cause channel-misconfig
+ errdisable recovery interval 600
+ 
+Verification Commands:
+ show etherchannel summary
+ show spanning-tree summary
+ show errdisable recovery
+ show errdisable detect
+
