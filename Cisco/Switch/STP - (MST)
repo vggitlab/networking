@@ -2,7 +2,6 @@
 
 Configuration:
 - SW1
-  spanning-tree mode mst
   spanning-tree mst configuration
   name CCNP
   revision 0
@@ -12,10 +11,10 @@ Configuration:
   instance 4 vlan 700,800
   exit
   spanning-tree mst 1 priority 0
+  spanning-tree mode mst
   spanning-tree pathcost method long
   
 - SW2
-  spanning-tree mode mst
   spanning-tree mst configuration
   name CCNP
   revision 0
@@ -25,6 +24,7 @@ Configuration:
   instance 4 vlan 700,800
   exit
   spanning-tree mst 2 priority 0
+  spanning-tree mode mst
   spanning-tree pathcost method long
   
   
