@@ -1,3 +1,9 @@
+Dynamic ARP Inspection (DAI) depends on the entries in the DHCP
+Snooping binding database to verify IP-to-MAC address bindings in incoming
+ARP requests and ARP responses. However, when DHCP Snooping is
+disabled or in non-DHCP environments, you must use ARP ACLs to permit
+or to deny packets
+
 # Dynamic ARP Inspection without DHCP Snooping binding database
 
 Configuration:
