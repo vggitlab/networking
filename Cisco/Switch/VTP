@@ -1,27 +1,6 @@
-# VLAN Trunking Protocol
-
-Configuration:
-- Version 1,2
-  vtp domain SWITCH
-  vtp version 2
-  vtp mode server
-  vtp password CCNP
-
-- Version 3  
-  vtp domain SWITCH
-  vtp version 3
-  vtp mode server         # vtp mode off / transparent /client
-  vtp password CCNP hidden
-  end  
-  vtp primary     # This command executes in privilege mode 
 
 
-Verification Commands:
-  show vtp status
-  show vtp password
-  show vtp interface
-  show vtp devices
-  show vtp counters
+
   
 VTP version review:
 - Version 1
