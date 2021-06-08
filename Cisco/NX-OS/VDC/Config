@@ -1,0 +1,29 @@
+!
+configure terminal
+!
+! Create Virtual Device Context (VDC) named N7K1-Cust-A.
+! assign interface Ethernet 1/1 through 1/8 to VDC N7K1-Cust-A.
+!
+vdc N7K1-Cust-A
+ allocate interface ethernet 1/1-8
+!
+! Create Virtual Device Context (VDC) named N7K1-Cust-B.
+! assign interface Ethernet 1/1 through 1/16 to VDC N7K1-Cust-B.
+!
+vdc N7K1-Cust-B
+ allocate interface ethernet 1/9-16
+!
+! Jump to VDC N7K1-Cust-A.
+!
+switchto vdc N7K1-Cust-A
+!
+! Jump to default VDC.
+!
+switchback
+
+
+
+! Verification commands.
+show vdc
+show vdc membership
+show running-config vdc
