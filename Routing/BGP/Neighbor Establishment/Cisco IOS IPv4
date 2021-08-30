@@ -1,0 +1,6 @@
+configure terminal
+!
+router bgp 100
+no auto-summary
+no synchronisation
+bgp router-id 1.1.1.1
