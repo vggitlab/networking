@@ -1,4 +1,5 @@
 !!! Using Point-to-Point interface connection.
+!#####     R1     #####!
 configure
 !
 set system host-name R1
@@ -19,6 +20,7 @@ set protocols bgp group eBGP neighbor 10.0.0.2 peer-as 100
 commit
 
 
+!#####     R2     #####!
 configure
 !
 set system host-name R2
