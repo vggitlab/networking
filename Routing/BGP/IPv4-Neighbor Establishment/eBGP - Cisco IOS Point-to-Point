@@ -35,24 +35,6 @@ router bgp 200
  no synchronization               ! Default
  bgp router-id 2.2.2.2
  neighbor 192.168.0.1 remote-as 100
- 
-!!! Using Loopback interface connection.
-interface Loopback0
- description For BGP Establishment
- ip address 172.16.16.1 255.255.255.255
-!
-ip route 192.168.168.1 255.255.255.255 Ethernet0/0 192.168.0.2 name BGP-Peer-AS_200
-!
-router bgp 100
- bgp default ipv4-unicast         ! Default
- bgp log-neighbor-changes         ! Default
- bgp fast-external-fallover       ! Default
- no auto-summary                  ! Default
- no synchronization               ! Default
- bgp router-id 1.1.1.1
- neighbor 192.168.168.1 remote-as 200
- neighbor 192.168.168.1 ebgp-multihop 10
- neighbor 192.168.168.1 update-source Loopback0
 
 
 !!! Verification commands:
