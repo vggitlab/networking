@@ -37,8 +37,8 @@ set routing-options autonomous-system 200
 !
 set protocols bgp group eBGP type external
 set protocols bgp group eBGP neighbor 10.0.0.1 peer-as 100
-set protocols bgp group eBGP neighbor 10.0.0.2 description Peer_AS-100
-set protocols bgp group eBGP neighbor 10.0.0.2 graceful-restart
+set protocols bgp group eBGP neighbor 10.0.0.1 description Peer_AS-100
+set protocols bgp group eBGP neighbor 10.0.0.1 graceful-restart
 !
 commit
 
