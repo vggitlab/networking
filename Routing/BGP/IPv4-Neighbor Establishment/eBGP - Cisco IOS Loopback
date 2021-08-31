@@ -1,0 +1,61 @@
+!!! Using Loopback interface connection.
+!#####     R1     #####!
+configure terminal
+!
+hostname R1
+!
+interface Ethernet0/0
+ description Link to R2 AS-200
+ ip address 192.168.0.1 255.255.255.252
+!
+interface Loopback0
+ description Used For BGP Establishment
+ ip address 172.16.16.1 255.255.255.255
+!
+ip route 192.168.168.1 255.255.255.255 Ethernet0/0 192.168.0.2 name BGP-Peer-AS_200
+!
+router bgp 100
+ bgp default ipv4-unicast         ! Default
+ bgp log-neighbor-changes         ! Default
+ bgp fast-external-fallover       ! Default
+ no auto-summary                  ! Default
+ no synchronization               ! Default
+ bgp router-id 1.1.1.1
+ neighbor 192.168.168.1 remote-as 200
+ neighbor 192.168.168.1 ebgp-multihop 10
+ neighbor 192.168.168.1 update-source Loopback0
+ 
+ 
+!#####     R2     #####!
+configure terminal
+!
+hostname R2
+!
+interface Ethernet0/0
+ description Link to R1 AS-100
+ ip address 192.168.0.2 255.255.255.252
+!
+interface Loopback0
+ description Used For BGP Establishment
+ ip address 192.168.168.1 255.255.255.255
+!
+ip route 172.16.16.1 255.255.255.255 Ethernet0/0 name BGP-Peer-AS_100
+!
+router bgp 200
+ bgp default ipv4-unicast         ! Default
+ bgp log-neighbor-changes         ! Default
+ bgp fast-external-fallover       ! Default
+ no auto-summary                  ! Default
+ no synchronization               ! Default
+ bgp router-id 2.2.2.2
+ neighbor 172.16.16.1 remote-as 100
+ neighbor 172.16.16.1 ebgp-multihop 10
+ neighbor 172.16.16.1 update-source Loopback0
+ 
+ 
+!!! Verification commands:
+show ip bgp summary
+show bgp ipv4 unicast summary
+
+show ip bgp neighbors
+show bgp ipv4 unicast neighbors
