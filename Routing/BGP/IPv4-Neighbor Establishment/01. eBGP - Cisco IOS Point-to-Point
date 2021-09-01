@@ -1,4 +1,5 @@
-!!! Using Point-to-Point interface connection.
+## Using Point-to-Point interface connection.
+
 !#####     R1     #####!
 configure terminal
 !
