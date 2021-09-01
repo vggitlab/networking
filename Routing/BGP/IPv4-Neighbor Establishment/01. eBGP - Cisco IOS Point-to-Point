@@ -1,6 +1,8 @@
 ## Using Point-to-Point interface connection.
 
+------------------------
 !#####     R1     #####!
+------------------------
 configure terminal
 !
 hostname R1
@@ -18,8 +20,9 @@ router bgp 100
  bgp router-id 1.1.1.1
  neighbor 192.168.0.2 remote-as 200
 
-
+------------------------
 !#####     R2     #####!
+------------------------
 configure terminal
 !
 hostname R2
