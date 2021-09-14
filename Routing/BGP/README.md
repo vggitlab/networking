@@ -66,6 +66,7 @@ Optional Non-transitive | Multi_Exit_Discrimiantor (MED), Originator_ID, Cluster
 12. Cluster List (Minimum)
 13. Neighbor IP address (Lowest)
 
+
 ###### Links:
 https://ipcisco.com/wp-content/uploads/Cheat-Sheets/bgp.pdf
 
